@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cardiovasculaire - CPTS Australe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page d'accueil -->
+    <div id="home-page" class="page active">
+        <div class="container">
+            <header class="hero-section">
+                <div class="logo-section">
+                    <div class="cpts-logo">
+                        <div class="logo-circle">CPTS</div>
+                        <span class="logo-text">Australe</span>
+                    </div>
+                    <h1 class="hero-title">Test de Santé Cardiovasculaire</h1>
+                    <p class="hero-subtitle">Évaluez votre risque cardiovasculaire en quelques minutes</p>
+                </div>
+                
+                <div class="hero-content">
+                    <div class="info-cards">
+                        <div class="info-card card-animate">
+                            <div class="card-icon">🩺</div>
+                            <h3>Évaluation professionnelle</h3>
+                            <p>Basée sur les recommandations HAS et ESC</p>
+                        </div>
+                        <div class="info-card card-animate">
+                            <div class="card-icon">📊</div>
+                            <h3>Résultats personnalisés</h3>
+                            <p>Score adapté à votre profil individuel</p>
+                        </div>
+                        <div class="info-card card-animate">
+                            <div class="card-icon">🤝</div>
+                            <h3>Accompagnement CPTS</h3>
+                            <p>Recommandations et orientation dans le réseau</p>
+                        </div>
+                    </div>
+                    
+                    <button id="start-test-btn" class="btn btn-primary btn-lg">
+                        Commencer le test
+                        <span class="btn-arrow">→</span>
+                    </button>
+                    
+                    <div class="disclaimer">
+                        <p><small>Ce test ne remplace pas une consultation médicale. Durée : 5 minutes environ.</small></p>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <!-- Page de confidentialité -->
+    <div id="privacy-page" class="page">
+        <div class="container">
+            <div class="privacy-content">
+                <h2 class="page-title">Informations et Confidentialité</h2>
+                
+                <div class="privacy-card">
+                    <div class="privacy-section">
+                        <h3>🔒 Confidentialité des données</h3>
+                        <ul>
+                            <li>Vos réponses restent anonymes et confidentielles</li>
+                            <li>Aucune donnée n'est transmise à des tiers</li>
+                            <li>Les résultats sont calculés localement sur votre appareil</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="privacy-section">
+                        <h3>📋 À propos du test</h3>
+                        <ul>
+                            <li>15 questions basées sur les recommandations médicales</li>
+                            <li>Score d'évaluation du risque cardiovasculaire</li>
+                            <li>Recommandations personnalisées</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="privacy-section">
+                        <h3>⚕️ Important</h3>
+                        <ul>
+                            <li>Ce test ne remplace pas un avis médical</li>
+                            <li>Consultez votre médecin pour un diagnostic</li>
+                            <li>En cas de symptômes, contactez immédiatement un professionnel</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="privacy-actions">
+                    <button id="back-home-btn" class="btn btn-outline">Retour</button>
+                    <button id="accept-privacy-btn" class="btn btn-primary">J'accepte et continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page des questions -->
+    <div id="quiz-page" class="page">
+        <div class="container">
+            <!-- Barre de progression -->
+            <div class="progress-section">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                    <div class="progress-shimmer"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="question-counter">Question 1 sur 15</span>
+                    <span id="progress-percentage">7%</span>
+                </div>
+            </div>
+
+            <!-- Container de questions -->
+            <div class="question-container">
+                <div id="question-card" class="question-card">
+                    <div class="question-category" id="question-category"></div>
+                    <h2 class="question-title" id="question-title"></h2>
+                    <div class="question-options" id="question-options"></div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="question-navigation">
+                <button id="prev-btn" class="btn btn-outline" disabled>Précédent</button>
+                <button id="next-btn" class="btn btn-primary" disabled>Suivant</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page des résultats -->
+    <div id="results-page" class="page">
+        <div class="container">
+            <div class="results-content">
+                <h2 class="page-title">Vos Résultats</h2>
+                
+                <div class="results-card">
+                    <div class="score-section">
+                        <div class="score-visual">
+                            <div id="score-circle" class="score-circle">
+                                <div id="score-value" class="score-value">0</div>
+                                <div class="score-total">/ 45</div>
+                            </div>
+                        </div>
+                        
+                        <div class="risk-assessment">
+                            <h3 id="risk-level" class="risk-level"></h3>
+                            <p id="risk-message" class="risk-message"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="recommendations">
+                        <h3>Recommandations personnalisées</h3>
+                        <div id="recommendations-list" class="recommendations-list"></div>
+                    </div>
+                </div>
+                
+                <div class="partners-section">
+                    <h3>Vos partenaires santé</h3>
+                    <div class="partners-grid">
+                        <div class="partner-card">
+                            <div class="partner-icon">🏥</div>
+                            <h4>CPTS Australe</h4>
+                            <p>Votre point d'entrée dans le réseau de soins coordonnés</p>
+                        </div>
+                        <div class="partner-card">
+                            <div class="partner-icon">👩‍⚕️</div>
+                            <h4>Médecin généraliste</h4>
+                            <p>Consultation et suivi régulier recommandé</p>
+                        </div>
+                        <div class="partner-card">
+                            <div class="partner-icon">❤️</div>
+                            <h4>Cardiologue</h4>
+                            <p>En cas de risque élevé ou très élevé</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <button id="print-results-btn" class="btn btn-outline">Imprimer les résultats</button>
+                    <button id="restart-test-btn" class="btn btn-secondary">Refaire le test</button>
+                    <button id="contact-cpts-btn" class="btn btn-primary">Contacter la CPTS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay de chargement -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Calcul en cours...</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
